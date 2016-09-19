@@ -1,23 +1,27 @@
 int r, g, b;
-Bacteria [] colony = new Bacteria[10];
+Bacteria [] colony = new Bacteria[50];
 
 void setup()   
  {     
- 	//initialize bacteria variables here 
+ 	//initialize bacteria variables here
+ 	background(0);
  	size(500, 500); 
+ 	frameRate(30);
  	for (int i = 0; i < colony.length; i++) {
- 		colony[i] = new Bacteria(250, 250);
+ 		colony[i] = new Bacteria((int)(Math.random()*501), (int)(Math.random()*501));
+ 		r = (int)(Math.random()*256);
+		g = (int)(Math.random()*256);
+		b = (int)(Math.random()*256);
  	}
  }   
 void draw()   
  {    
  	//move and show the bacteria
- 	background(255);
+ 	fill(0, 0, 0, 10);
+ 	rect(0, 0, 500, 500);
  	for (int i = 0; i < colony.length; i++) {
- 		r = (int)(Math.random()*256);
-		g = (int)(Math.random()*256);
-		b = (int)(Math.random()*256);
-		fill(r, g, b);
+ 		stroke(r, g, b);
+ 		strokeWeight(3);
  		colony[i].show();
  		colony[i].move();
  	}
