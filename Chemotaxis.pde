@@ -1,4 +1,3 @@
-int r, g, b;
 Bacteria [] colony = new Bacteria[50];
 
 void setup()   
@@ -8,10 +7,7 @@ void setup()
  	size(500, 500); 
  	frameRate(30);
  	for (int i = 0; i < colony.length; i++) {
- 		colony[i] = new Bacteria((int)(Math.random()*501), (int)(Math.random()*501));
- 		r = (int)(Math.random()*256);
-		g = (int)(Math.random()*256);
-		b = (int)(Math.random()*256);
+ 		colony[i] = new Bacteria((int)(Math.random()*301)+100, (int)(Math.random()*301)+100, color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
  	}
  }   
 void draw()   
@@ -20,24 +16,25 @@ void draw()
  	fill(0, 0, 0, 10);
  	rect(0, 0, 500, 500);
  	for (int i = 0; i < colony.length; i++) {
- 		stroke(r, g, b);
- 		strokeWeight(3);
  		colony[i].show();
  		colony[i].move();
  	}
  }  
  class Bacteria    
  {     
- 	int myX, myY;
- 	Bacteria(int x, int y) {
+ 	int myX, myY, myColor;
+ 	Bacteria(int x, int y, int rgb) {
  		myX = x;
  		myY = y;
+ 		myColor = rgb;
  	}
  	void move() {
- 		myX = myX + (int)(Math.random()*7)-3;
- 		myY = myY + (int)(Math.random()*7)-3;
+ 		myX = myX + (int)(Math.random()*5)-2;
+ 		myY = myY + (int)(Math.random()*5)-2;
  	}
  	void show() {
- 		ellipse(myX, myY, 10, 10);
- 	}
- }    
+			stroke(myColor);
+	 		strokeWeight(3);
+	 		ellipse(myX, myY, 10, 10);
+ 	}    
+}
