@@ -21,8 +21,8 @@ void draw()
  }  
 
  void food() {
- 	fill(255, 195, 102);
- 	noStroke();
+ 	noFill();
+ 	stroke(255);
  	ellipse(mouseX, mouseY, 40, 40);
  }
 
@@ -39,30 +39,30 @@ void draw()
  	void move() {
  		if (chaseFood == true) {
 	 		if (myX <= mouseX) {
-	 			myX = myX + (int)(Math.random()*4)-1;
+	 			myX += (int)(Math.random()*6)-2;
 	 		}
 	 		else if (myX > mouseX) {
-	 			myX = myX + (int)(Math.random()*4)-2;
+	 			myX += (int)(Math.random()*6)-3;
 	 		}
 	 		if (myY <= mouseY) {
-	 			myY = myY + (int)(Math.random()*4)-1;
+	 			myY += (int)(Math.random()*6)-2;
 	 		}
 	 		else if (myY > mouseY) {
-	 			myY = myY + (int)(Math.random()*4)-2;
+	 			myY += (int)(Math.random()*6)-3;
 	 		}
 	 	}
 	 	else {
 	 		if (myX <= mouseX) {
-	 			myX = myX + (int)(Math.random()*4)-2;
+	 			myX += (int)(Math.random()*6)-3;
 	 		}
 	 		else if (myX > mouseX) {
-	 			myX = myX + (int)(Math.random()*4)-1;
+	 			myX += (int)(Math.random()*6)-2;
 	 		}
 	 		if (myY <= mouseY) {
-	 			myY = myY + (int)(Math.random()*4)-2;
+	 			myY += (int)(Math.random()*6)-3;
 	 		}
 	 		else if (myY > mouseY) {
-	 			myY = myY + (int)(Math.random()*4)-1;
+	 			myY += (int)(Math.random()*6)-2;
 	 		}
 	 	}
 	 	if (mousePressed == true) {
